@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from pulp import LpProblem, LpVariable, lpSum, LpMinimize, LpStatus, GLPK_CMD
+import random
 
 app = Flask(__name__)
 
