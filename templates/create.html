@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Projects and People</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 </head>
 <body>
 
@@ -16,48 +16,43 @@
 
     <div class="container">
         <h1>Create Projects and People</h1>
-        
-        <div id="create-form">
-            <h3>Add a Project</h3>
-            <form id="add-project-form">
-                <label for="project-name">Project Name:</label>
-                <input type="text" id="project-name" placeholder="e.g., Project X" required><br><br>
 
-                <label for="project-skills">Required Skills (comma separated):</label>
-                <input type="text" id="project-skills" placeholder="e.g., Editing, Writing" required><br><br>
+        <div class="split-screen">
+            <!-- Project Form Section -->
+            <div class="form-section">
+                <h3>Add a Project</h3>
+                <form id="add-project-form">
+                    <input type="text" id="project-name" placeholder="Project Name" required />
+                    <input type="text" id="project-skills" placeholder="Required Skills (comma separated)" required />
+                    <input type="text" id="project-time" placeholder="Required Time (comma separated)" required />
+                    <input type="number" id="project-deadline" placeholder="Deadline" required />
+                    <input type="text" id="project-budget" placeholder="Budget (min, max)" required />
+                    <input type="text" id="project-location" placeholder="Location" required />
+                    <button type="submit">Add Project</button>
+                </form>
+                <div id="project-list" class="data-list">
+                    <!-- Projects will be displayed here -->
+                </div>
+            </div>
 
-                <label for="project-time">Required Time (comma separated):</label>
-                <input type="text" id="project-time" placeholder="e.g., 9, 10" required><br><br>
-
-                <label for="project-deadline">Deadline:</label>
-                <input type="number" id="project-deadline" placeholder="e.g., 12" required><br><br>
-
-                <button type="submit">Add Project</button>
-            </form>
-
-            <h3>Add a Person</h3>
-            <form id="add-person-form">
-                <label for="person-name">Person Name:</label>
-                <input type="text" id="person-name" placeholder="e.g., Alice" required><br><br>
-
-                <label for="person-skills">Skills (comma separated):</label>
-                <input type="text" id="person-skills" placeholder="e.g., Editing, Writing" required><br><br>
-
-                <label for="person-availability">Availability (comma separated):</label>
-                <input type="text" id="person-availability" placeholder="e.g., 9, 10, 11" required><br><br>
-
-                <label for="person-rates">Rates (min, max):</label>
-                <input type="text" id="person-rates" placeholder="e.g., 50, 60" required><br><br>
-
-                <button type="submit">Add Person</button>
-            </form>
+            <!-- Person Form Section -->
+            <div class="form-section">
+                <h3>Add a Person</h3>
+                <form id="add-person-form">
+                    <input type="text" id="person-name" placeholder="Person Name" required />
+                    <input type="text" id="person-skills" placeholder="Skills (comma separated)" required />
+                    <input type="text" id="person-availability" placeholder="Availability (comma separated)" required />
+                    <input type="text" id="person-rates" placeholder="Rates (min, max)" required />
+                    <input type="text" id="person-location" placeholder="Location" required />
+                    <button type="submit">Add Person</button>
+                </form>
+                <div id="person-list" class="data-list">
+                    <!-- People will be displayed here -->
+                </div>
+            </div>
         </div>
-        
-        <div id="summary">
-            <h3>Current Projects and People</h3>
-            <pre id="summary-content"></pre>
-            <button id="run-optimization">Run Optimization</button>
-        </div>
+
+        <button id="run-optimization">Run Optimization</button>
     </div>
 
     <script src="{{ url_for('static', filename='js/create.js') }}"></script>
