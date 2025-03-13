@@ -8,6 +8,14 @@ app = Flask(__name__)
 def home():
     return render_template('index.html') 
 
+@app.route('/')
+def scheduler():
+    return render_template('index.html')
+
+@app.route('/create')
+def create():
+    return render_template('create.html')
+
 @app.route('/assign_projects', methods=['POST'])
 def assign_projects():
     data = request.get_json()
