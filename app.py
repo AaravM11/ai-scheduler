@@ -1,21 +1,10 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from pulp import LpProblem, LpVariable, lpSum, LpMinimize, LpStatus, GLPK_CMD
 import random
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('index.html') 
-
-@app.route('/')
-def scheduler():
-    return render_template('index.html')
-
-@app.route('/create')
-def create():
-    return render_template('create.html')
-
+# API route to handle project assignments
 @app.route('/assign_projects', methods=['POST'])
 def assign_projects():
     data = request.get_json()
